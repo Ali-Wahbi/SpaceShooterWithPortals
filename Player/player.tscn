@@ -30,8 +30,20 @@ frame = 3
 position = Vector2(-4, 0)
 rotation = 0.5235988
 shape = SubResource("CapsuleShape2D_rfpkf")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=110739386]
 position = Vector2(4, 0)
 rotation = -0.5235988
 shape = SubResource("CapsuleShape2D_rfpkf")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="followCamera" type="Camera2D" parent="." unique_id=445481920]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.05
+drag_right_margin = 0.1
+drag_bottom_margin = 0.05
+editor_draw_drag_margin = true

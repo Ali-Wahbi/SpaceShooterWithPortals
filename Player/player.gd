@@ -11,12 +11,18 @@ const THRUST_LERP_SPEED = 3.0 # Adjust this value to control how quickly the vel
 @export var stoppingSpeed: float = 10.0
 @export_range(0, 5, 1) var selectedBody: int
 
+var canMove: bool = false
+
 func _ready():
 	thrusterSprite.visible = false
 	thrusterSprite.frame = selectedBody
 	bodySprite.frame = selectedBody
+	await get_tree().process_frame
+	startFuel()
 
 func _physics_process(delta: float) -> void:
+	if not canMove:
+		return
 	# rotate based on mouse pos
 	MousePosRotate(delta)
 	# move when thrust is clicked
@@ -35,6 +41,7 @@ func MousePosRotate(delta: float) -> void:
 func HandleInput(delta: float) -> void:
 	if Input.is_action_pressed("Thrust"):
 		print("Thrusting in direction")
+		consumeFuel(delta)
 		thrusterSprite.visible = true
 		var target_direction: Vector2 = Vector2.from_angle(rotation - deg_to_rad(extraAngle)) # Use 'rotation' (radians) instead of 'rotation_degrees'
 		var target_velocity: Vector2 = target_direction * SPEED
@@ -48,3 +55,26 @@ func HandleInput(delta: float) -> void:
 
 	if Input.is_action_just_pressed("Fire"):
 		pass
+
+
+#region Fuel Handling
+signal fuelConsumed(float)
+@export_group("Fuel")
+@export var fuelConsumption: float = 5.0
+
+var maxFuel: float = 100.0
+var currentFuel: float = 100.0
+
+var currentPercentage: float:
+	set(value):
+		currentPercentage = value
+		fuelConsumed.emit(value)
+
+func consumeFuel(delta: float) -> void:
+	currentFuel = clampf(currentFuel - fuelConsumption * delta, 0.0, maxFuel)
+	currentPercentage = 100.0 * currentFuel / maxFuel
+
+func startFuel() -> void:
+	currentFuel = maxFuel
+	currentPercentage = 100.0 * currentFuel / maxFuel
+#endregion

@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://caigl3gjotqi"]
 
 [ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://Player/player.tscn" id="1_64fjj"]
+[ext_resource type="Script" uid="uid://cv3j6rjmh45sy" path="res://testAreaController.gd" id="1_vt2yd"]
 [ext_resource type="Script" uid="uid://duvpsujs6a4lr" path="res://Cursor/cursor.gd" id="2_6fnve"]
 [ext_resource type="Texture2D" uid="uid://brxms3muhicui" path="res://Cursor/Cursors1.png" id="2_rfpkf"]
+[ext_resource type="PackedScene" uid="uid://dwqmxq1qlhmxy" path="res://fuelUI/fuel_bar_ui.tscn" id="4_od0h0"]
 
-[node name="TestArea" type="Node2D" unique_id=780645201]
+[node name="TestArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player")]
+script = ExtResource("1_vt2yd")
+fuelUI = NodePath("CanvasLayer/FuelBarUI")
+player = NodePath("Player")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=293026307]
 offset_left = 741.0
@@ -26,19 +31,10 @@ offset_bottom = -25.0
 
 [node name="Player" parent="." unique_id=992937920 instance=ExtResource("1_64fjj")]
 position = Vector2(48, 72)
-
-[node name="followCamera" type="Camera2D" parent="Player" unique_id=2133395988]
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.1
-drag_top_margin = 0.05
-drag_right_margin = 0.1
-drag_bottom_margin = 0.05
-editor_draw_drag_margin = true
+fuelConsumption = 3.0
 
 [node name="Cursor" type="Node2D" parent="." unique_id=607741528]
-position = Vector2(305, 261)
+position = Vector2(183, 56)
 script = ExtResource("2_6fnve")
 lerpSpeed = 12.0
 
@@ -48,19 +44,7 @@ hframes = 5
 frame = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1496356386]
-visible = false
 
-[node name="UI" type="Control" parent="CanvasLayer" unique_id=153167001]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="FuelBarUI" parent="CanvasLayer" unique_id=1833986140 instance=ExtResource("4_od0h0")]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/UI" unique_id=267210969]
-layout_mode = 0
-offset_right = 380.0
-offset_bottom = 257.0
-value = 50.0
-fill_mode = 2
+[connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
