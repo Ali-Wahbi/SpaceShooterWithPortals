@@ -2,24 +2,20 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
-
+@export var extraAngle: float = 90.0
+@export var rotationSpeed: float = 10.0
+var previousAngle: float = -1
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	# rotate based on mouse pos
+	MousePosRotate(delta)
+	# move when thrust is clicked
+	# slow down when thrust is released
 	move_and_slide()
+
+func MousePosRotate(delta) -> void:
+	var mouseRotation = global_position.angle_to_point(get_global_mouse_position())
+
+	var correctRotations = mouseRotation + deg_to_rad(extraAngle)
+	
+	rotation = lerp_angle(rotation, correctRotations, rotationSpeed * delta)

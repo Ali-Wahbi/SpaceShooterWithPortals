@@ -14,6 +14,7 @@ height = 27.784607
 position = Vector2(48, 72)
 motion_mode = 1
 script = ExtResource("1_6fnve")
+rotationSpeed = 15.0
 
 [node name="CharactersSheet1" type="Sprite2D" parent="Player" unique_id=2016796787]
 texture = ExtResource("1_rfpkf")
@@ -35,3 +36,10 @@ shape = SubResource("CapsuleShape2D_rfpkf")
 position = Vector2(4, 0)
 rotation = -0.5235988
 shape = SubResource("CapsuleShape2D_rfpkf")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2133395988]
+position = Vector2(48, 72)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
