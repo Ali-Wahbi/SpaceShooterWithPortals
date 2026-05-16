@@ -1,3 +1,37 @@
 [gd_scene format=3 uid="uid://caigl3gjotqi"]
 
+[ext_resource type="Script" uid="uid://batafhm05bnuw" path="res://Player/player.gd" id="1_6fnve"]
+[ext_resource type="Texture2D" uid="uid://bqfmx22qehoia" path="res://Player/Characters Sheet1.png" id="1_rfpkf"]
+[ext_resource type="Texture2D" uid="uid://52eqkum2541g" path="res://Player/Thrusters Sheet1.png" id="2_6fnve"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfpkf"]
+radius = 5.0
+height = 27.784607
+
 [node name="TestArea" type="Node2D" unique_id=780645201]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=194801671]
+position = Vector2(48, 72)
+motion_mode = 1
+script = ExtResource("1_6fnve")
+
+[node name="CharactersSheet1" type="Sprite2D" parent="Player" unique_id=2016796787]
+texture = ExtResource("1_rfpkf")
+hframes = 6
+frame = 3
+
+[node name="ThrustersSheet1" type="Sprite2D" parent="Player" unique_id=1108559798]
+position = Vector2(0, 32)
+texture = ExtResource("2_6fnve")
+hframes = 6
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=124490176]
+position = Vector2(-4, 0)
+rotation = 0.5235988
+shape = SubResource("CapsuleShape2D_rfpkf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=39045212]
+position = Vector2(4, 0)
+rotation = -0.5235988
+shape = SubResource("CapsuleShape2D_rfpkf")

@@ -12,7 +12,12 @@ config_version=5
 
 config/name="New Game Project"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.078431375, 0.0627451, 0.07450981, 1)
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="player"
 
 [physics]
 
@@ -20,4 +25,6 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.078431375, 0.0627451, 0.07450981, 1)
