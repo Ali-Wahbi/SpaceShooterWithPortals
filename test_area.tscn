@@ -5,11 +5,14 @@
 [ext_resource type="Script" uid="uid://duvpsujs6a4lr" path="res://Cursor/cursor.gd" id="2_6fnve"]
 [ext_resource type="Texture2D" uid="uid://brxms3muhicui" path="res://Cursor/Cursors1.png" id="2_rfpkf"]
 [ext_resource type="PackedScene" uid="uid://dwqmxq1qlhmxy" path="res://fuelUI/fuel_bar_ui.tscn" id="4_od0h0"]
+[ext_resource type="Texture2D" uid="uid://beeg2srh1lm2t" path="res://Extra/mouse Instructions.png" id="6_xdpsd"]
+[ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="7_6ii2q"]
 
-[node name="TestArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player")]
+[node name="TestArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player", "instructions")]
 script = ExtResource("1_vt2yd")
 fuelUI = NodePath("CanvasLayer/FuelBarUI")
 player = NodePath("Player")
+instructions = NodePath("Instructions")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=293026307]
 offset_left = 741.0
@@ -46,5 +49,33 @@ frame = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1496356386]
 
 [node name="FuelBarUI" parent="CanvasLayer" unique_id=1833986140 instance=ExtResource("4_od0h0")]
+
+[node name="Instructions" type="Node2D" parent="." unique_id=1668945964]
+position = Vector2(56, -4)
+
+[node name="MouseInstructions" type="Sprite2D" parent="Instructions" unique_id=215418887]
+texture = ExtResource("6_xdpsd")
+
+[node name="LabelBehind" type="Label" parent="Instructions" unique_id=1196516684]
+offset_left = 35.0
+offset_top = -31.0
+offset_right = 131.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("7_6ii2q")
+theme_override_font_sizes/font_size = 32
+text = "Thrust"
+
+[node name="LabelBehind2" type="Label" parent="Instructions" unique_id=115945348]
+offset_left = -224.0
+offset_top = -33.0
+offset_right = -40.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("7_6ii2q")
+theme_override_font_sizes/font_size = 32
+text = "Fire
+Not Available"
+horizontal_alignment = 2
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
