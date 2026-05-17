@@ -16,6 +16,7 @@ const THRUST_LERP_SPEED = 3.0 # Adjust this value to control how quickly the vel
 var canMove: bool = false
 
 func _ready():
+	connectSignals()
 	thrusterSprite.visible = false
 	thrusterSprite.frame = selectedBody
 	bodySprite.frame = selectedBody
@@ -49,17 +50,25 @@ func HandleInput(delta: float) -> void:
 		print("Stopping Thrusting")
 		stopThrust(delta)
 
-	if Input.is_action_just_pressed("Fire"):
+	if Input.is_action_pressed("Fire"):
 		fireBullet()
 
+func connectSignals():
+	GlobalSignals.RockDestroyed.connect(gainFuelFromRock)
 
+func gainFuelFromRock():
+	print("Gaining 15 Fuel")
+	gainFuel(15.0)
 #region Fuel Handling
 signal fuelConsumed(float)
 @export_group("Fuel")
 @export var fuelConsumption: float = 5.0
 
 var maxFuel: float = 100.0
-var currentFuel: float = 100.0
+var currentFuel: float = 100.0:
+	set(value):
+		currentFuel = clampf(value, 0.0, maxFuel)
+		currentPercentage = 100.0 * currentFuel / maxFuel
 
 var currentPercentage: float:
 	set(value):
@@ -67,12 +76,13 @@ var currentPercentage: float:
 		fuelConsumed.emit(value)
 
 func consumeFuel(delta: float) -> void:
-	currentFuel = clampf(currentFuel - fuelConsumption * delta, 0.0, maxFuel)
-	currentPercentage = 100.0 * currentFuel / maxFuel
+	currentFuel -= fuelConsumption * delta
 
 func startFuel() -> void:
 	currentFuel = maxFuel
-	currentPercentage = 100.0 * currentFuel / maxFuel
+
+func gainFuel(amount: float) -> void:
+	currentFuel += amount
 #endregion
 
 #region Thrust movement
@@ -93,11 +103,23 @@ func stopThrust(delta: float):
 
 
 #region Firing
+var canFire = true
+var bulletDelay = 0.2
 func fireBullet():
 	if not bulletScene:
 		return
+	if not canFire:
+		return
+	startFireDelay()
 	var bulletBody = bulletScene.instantiate()
 	add_sibling(bulletBody)
+	bulletBody.setSpriteFrame(selectedBody)
 	bulletBody.global_position = shootPosition.global_position
 	bulletBody.fireInDirection(rotation - deg_to_rad(extraAngle))
+
+func startFireDelay():
+	canFire = false
+	await get_tree().create_timer(bulletDelay).timeout
+	canFire = true
+
 #endregion

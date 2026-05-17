@@ -6,6 +6,9 @@ var lifeTimer: Timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	startLifeTimer()
+	
+func setSpriteFrame(spriteFrame: int):
+	$Sprite2D.frame = spriteFrame
 
 func fireInDirection(direction: float):
 	var shootDirection = Vector2.from_angle(direction).normalized()

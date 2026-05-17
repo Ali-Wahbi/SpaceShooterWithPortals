@@ -28,6 +28,7 @@ func _on_body_entered(body: Node) -> void:
 func takeDamage():
 	hp -= 1
 	if hp == 0:
+		GlobalSignals.RockDestroyed.emit()
 		queue_free()
 	else:
 		setSprite()
