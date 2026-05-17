@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dc43ns2wwk6t"]
+
+[ext_resource type="Script" uid="uid://fk13kiih1u4o" path="res://Rocks/rock.gd" id="1_3f8yx"]
+[ext_resource type="Texture2D" uid="uid://bgmj2imjsrajm" path="res://Rocks/Rocks Sheet1.png" id="2_dxx72"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7aw3l"]
+radius = 14.035668
+
+[node name="Rock" type="RigidBody2D" unique_id=113015114]
+collision_layer = 2
+collision_mask = 9
+gravity_scale = 0.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(16, 16)
+custom_integrator = true
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 3
+linear_damp_mode = 1
+linear_damp = 100.0
+script = ExtResource("1_3f8yx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2130476876]
+texture = ExtResource("2_dxx72")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1147829995]
+shape = SubResource("CircleShape2D_7aw3l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
