@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://batafhm05bnuw" path="res://Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://bqfmx22qehoia" path="res://Player/Characters Sheet1.png" id="2_gwnis"]
 [ext_resource type="Texture2D" uid="uid://52eqkum2541g" path="res://Player/Thrusters Sheet1.png" id="3_k53q1"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="4_gwnis"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfpkf"]
 radius = 5.0
@@ -47,3 +48,10 @@ drag_top_margin = 0.05
 drag_right_margin = 0.1
 drag_bottom_margin = 0.05
 editor_draw_drag_margin = true
+
+[node name="shootPosition" type="Node2D" parent="." unique_id=1396291101]
+position = Vector2(0, -28)
+
+[node name="Sprite2D" type="Sprite2D" parent="shootPosition" unique_id=1953037486]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("4_gwnis")

@@ -7,12 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://dwqmxq1qlhmxy" path="res://fuelUI/fuel_bar_ui.tscn" id="4_od0h0"]
 [ext_resource type="Texture2D" uid="uid://beeg2srh1lm2t" path="res://Extra/mouse Instructions.png" id="6_xdpsd"]
 [ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="7_6ii2q"]
+[ext_resource type="Script" uid="uid://fk13kiih1u4o" path="res://Rocks/rock.gd" id="8_7aw3l"]
+[ext_resource type="Texture2D" uid="uid://bgmj2imjsrajm" path="res://Rocks/Rocks Sheet1.png" id="8_gql8c"]
+[ext_resource type="PackedScene" uid="uid://b51ysdcx4ovpk" path="res://Player/bullet.tscn" id="10_ry2yl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7aw3l"]
+radius = 14.035668
 
 [node name="TestArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player", "instructions")]
 script = ExtResource("1_vt2yd")
 fuelUI = NodePath("CanvasLayer/FuelBarUI")
 player = NodePath("Player")
 instructions = NodePath("Instructions")
+startTimer = 0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=293026307]
 offset_left = 741.0
@@ -34,6 +41,7 @@ offset_bottom = -25.0
 
 [node name="Player" parent="." unique_id=992937920 instance=ExtResource("1_64fjj")]
 position = Vector2(48, 72)
+bulletScene = ExtResource("10_ry2yl")
 fuelConsumption = 3.0
 
 [node name="Cursor" type="Node2D" parent="." unique_id=607741528]
@@ -65,6 +73,7 @@ theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_fonts/font = ExtResource("7_6ii2q")
 theme_override_font_sizes/font_size = 32
 text = "Thrust"
+metadata/_edit_use_anchors_ = true
 
 [node name="LabelBehind2" type="Label" parent="Instructions" unique_id=115945348]
 offset_left = -224.0
@@ -77,5 +86,33 @@ theme_override_font_sizes/font_size = 32
 text = "Fire
 Not Available"
 horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Rock" type="RigidBody2D" parent="." unique_id=954329110]
+position = Vector2(372, 183)
+collision_layer = 2
+collision_mask = 9
+gravity_scale = 0.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(16, 16)
+custom_integrator = true
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 3
+linear_damp_mode = 1
+linear_damp = 100.0
+script = ExtResource("8_7aw3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rock" unique_id=629056312]
+texture = ExtResource("8_gql8c")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock" unique_id=109470683]
+shape = SubResource("CircleShape2D_7aw3l")
+
+[node name="Bullet" parent="." unique_id=2109485282 instance=ExtResource("10_ry2yl")]
+position = Vector2(264.6485, 184.22275)
+mass = 0.5
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
+[connection signal="body_entered" from="Rock" to="Rock" method="_on_body_entered"]
