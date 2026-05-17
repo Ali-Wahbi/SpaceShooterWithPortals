@@ -116,14 +116,4 @@ metadata/_edit_use_anchors_ = true
 [node name="Rock" parent="." unique_id=113015114 instance=ExtResource("9_7aw3l")]
 position = Vector2(372, 183)
 
-[node name="Rock2" parent="." unique_id=480087704 instance=ExtResource("9_7aw3l")]
-position = Vector2(536, 285)
-
-[node name="Rock3" parent="." unique_id=619360862 instance=ExtResource("9_7aw3l")]
-position = Vector2(300, 350)
-
-[node name="Bullet" parent="." unique_id=2109485282 instance=ExtResource("10_ry2yl")]
-position = Vector2(264.6485, 184.22275)
-mass = 0.5
-
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]

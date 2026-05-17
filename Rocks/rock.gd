@@ -15,7 +15,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	pass
+	# linear_velocity = selectedVelocity
+	angular_velocity = 0
 
 
 func _on_body_entered(body: Node) -> void:
