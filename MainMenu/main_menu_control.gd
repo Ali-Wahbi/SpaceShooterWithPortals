@@ -23,8 +23,9 @@ func _on_play_pressed() -> void:
 	pressSFX.play()
 	animPlayer.play("hideUI")
 	await animPlayer.animation_finished
+	await get_tree().create_timer(1).timeout
 	# go to main game area
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://mainGameArea.tscn")
 
 
 func _on_quit_mouse_entered() -> void:
@@ -34,6 +35,7 @@ func _on_quit_pressed() -> void:
 	pressSFX.play()
 	animPlayer.play("hideUI")
 	await animPlayer.animation_finished
+	await get_tree().create_timer(1).timeout
 	get_tree().quit()
 #endregion
 

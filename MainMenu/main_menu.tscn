@@ -86,6 +86,42 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/main:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/sub2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/sub:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8n28k"]
 resource_name = "hideUI"
@@ -139,10 +175,63 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_iej5p"]
+resource_name = "showUI"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/main:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/sub2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/sub:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/CenterContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8333334, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iej5p"]
 _data = {
 &"RESET": SubResource("Animation_83n0s"),
-&"hideUI": SubResource("Animation_8n28k")
+&"hideUI": SubResource("Animation_8n28k"),
+&"showUI": SubResource("Animation_iej5p")
 }
 
 [node name="MainMenu" type="Node2D" unique_id=1399039347]
@@ -154,7 +243,7 @@ maximumTileOffset = Vector2(48, 48)
 texture_repeat = 2
 material = SubResource("ShaderMaterial_5de1l")
 position = Vector2(583, 354)
-tile_map_data = PackedByteArray("AAD8//3/AAAAAAEAAAD8//7/AAAAAAAAAAD8////AAAAAAEAAAD9//7/AAABAAAAAAD9////AAABAAEAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAEAAAD9/wIAAAABAAAAAAD9/wMAAAABAAEAAAD+/wIAAAACAAAAAAD+/wMAAAACAAEAAAABAP3/AAACAAEAAAD/////AAAAAAEAAAAAAP//AAABAAEAAAABAP7/AAACAAAAAAABAP//AAACAAEAAAABAAEAAAACAAEAAAABAAIAAAACAAAAAAABAAMAAAACAAEAAAACAP7/AAAAAAAAAAACAP//AAAAAAEAAAADAP7/AAABAAAAAAADAP//AAABAAEAAAAEAP7/AAACAAAAAAAEAP//AAACAAEAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAACAAAAAAAAAPQBAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//7/AAABAAAAAAD8//3/AAAAAAEAAAD8//7/AAAAAAAAAAD8////AAAAAAEAAAD9////AAABAAEAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAEAAAD9/wIAAAABAAAAAAD9/wMAAAABAAEAAAD+/wIAAAACAAAAAAD+/wMAAAACAAEAAAABAP3/AAACAAEAAAD/////AAAAAAEAAAAAAP//AAABAAEAAAABAP7/AAACAAAAAAABAP//AAACAAEAAAABAAEAAAACAAEAAAABAAIAAAACAAAAAAABAAMAAAACAAEAAAACAP7/AAAAAAAAAAACAP//AAAAAAEAAAADAP7/AAABAAAAAAADAP//AAABAAEAAAAEAP7/AAACAAAAAAAEAP//AAACAAEAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAACAAAAAAAAAPQBAAAAAAAAAAA=")
 rectSizeX = 30
 rectSizeY = 30
 chanceOfEmpty = 95
@@ -185,6 +274,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="main" type="Label" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer" unique_id=1491223564]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_colors/font_shadow_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
@@ -192,11 +282,16 @@ theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_5de1l")
 theme_override_font_sizes/font_size = 96
-text = "Star Shooter"
+text = "Space Shooter"
 horizontal_alignment = 1
 
-[node name="sub" type="Label" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer" unique_id=1410229943]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer" unique_id=1176133383]
 layout_mode = 2
+
+[node name="sub" type="Label" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1410229943]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_colors/font_shadow_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
 theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
@@ -204,7 +299,20 @@ theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_5de1l")
 theme_override_font_sizes/font_size = 48
 text = "With Portals"
-horizontal_alignment = 1
+horizontal_alignment = 2
+
+[node name="sub2" type="Label" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=233897644]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_shadow_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("3_5de1l")
+theme_override_font_sizes/font_size = 48
+text = "(maybe)"
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control" unique_id=1256366023]
 layout_mode = 1
@@ -266,6 +374,7 @@ mix_target = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1184963954]
 libraries/ = SubResource("AnimationLibrary_iej5p")
+autoplay = &"showUI"
 
 [connection signal="mouse_entered" from="CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer/play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]

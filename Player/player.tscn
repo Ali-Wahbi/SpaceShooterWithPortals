@@ -53,5 +53,6 @@ editor_draw_drag_margin = true
 position = Vector2(0, -28)
 
 [node name="Sprite2D" type="Sprite2D" parent="shootPosition" unique_id=1953037486]
+visible = false
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("4_gwnis")

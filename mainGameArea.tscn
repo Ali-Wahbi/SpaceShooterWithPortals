@@ -1,0 +1,119 @@
+[gd_scene format=4 uid="uid://kxe7mfcltqva"]
+
+[ext_resource type="Script" uid="uid://cv3j6rjmh45sy" path="res://testAreaController.gd" id="1_mjele"]
+[ext_resource type="PackedScene" uid="uid://db55vl37y3nsj" path="res://SpaceBG/space_bg.tscn" id="2_sx6gi"]
+[ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://Player/player.tscn" id="3_dkk4d"]
+[ext_resource type="PackedScene" uid="uid://b51ysdcx4ovpk" path="res://Player/bullet.tscn" id="4_4vbbm"]
+[ext_resource type="Script" uid="uid://duvpsujs6a4lr" path="res://Cursor/cursor.gd" id="5_6cy8a"]
+[ext_resource type="Texture2D" uid="uid://brxms3muhicui" path="res://Cursor/Cursors1.png" id="6_ii20u"]
+[ext_resource type="PackedScene" uid="uid://dwqmxq1qlhmxy" path="res://fuelUI/fuel_bar_ui.tscn" id="7_rkfmr"]
+[ext_resource type="Texture2D" uid="uid://beeg2srh1lm2t" path="res://Extra/mouse Instructions.png" id="8_pyyts"]
+[ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="9_rcfer"]
+[ext_resource type="PackedScene" uid="uid://dc43ns2wwk6t" path="res://Rocks/rock.tscn" id="10_wjwne"]
+[ext_resource type="AudioStream" uid="uid://ch6qn2a7fmihy" path="res://SFX/GameBGSong.mp3" id="11_sx6gi"]
+
+[node name="mainGameArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player", "instructions")]
+script = ExtResource("1_mjele")
+fuelUI = NodePath("CanvasLayer/FuelBarUI")
+player = NodePath("Player")
+instructions = NodePath("Instructions")
+
+[node name="StarsBg" parent="." unique_id=563080242 instance=ExtResource("2_sx6gi")]
+z_index = -1
+position = Vector2(335, 329)
+tile_map_data = PackedByteArray("AADU//r/AAAAAAAAAADX/woAAAABAAAAAADY//r/AAABAAEAAADY/wMAAAACAAAAAADZ/wkAAAABAAAAAADa/wQAAAABAAEAAADa/wwAAAAAAAAAAADd/+r/AAABAAEAAADd//D/AAABAAEAAADd/wIAAAABAAAAAADf//T/AAACAAAAAADg////AAAAAAAAAADh/wMAAAABAAEAAADi/wIAAAABAAEAAADj/wEAAAABAAEAAADk//3/AAAAAAAAAADk/wEAAAABAAAAAADn/wwAAAABAAAAAADo//D/AAAAAAAAAADo/wUAAAAAAAAAAADp//n/AAABAAAAAADp/xQAAAACAAAAAADq//j/AAACAAAAAADq/w0AAAAAAAAAAADr/+7/AAABAAAAAADr/wgAAAACAAAAAADr/wwAAAACAAAAAADt/+z/AAABAAAAAADt/wIAAAAAAAAAAADw/woAAAABAAAAAADx/w8AAAABAAAAAADy/wMAAAAAAAAAAADz//P/AAAAAAEAAADz/wMAAAACAAAAAADz/xEAAAAAAAAAAAD2//n/AAAAAAAAAAD5/+3/AAAAAAAAAAD5//r/AAACAAAAAAD6//z/AAACAAAAAAD8/wcAAAABAAAAAAD9//7/AAAAAAEAAAD//wsAAAABAAAAAAD//w4AAAACAAAAAAABAPH/AAAAAAAAAAABAAoAAAABAAAAAAACAAcAAAABAAAAAAACAAsAAAAAAAAAAAAFAPX/AAACAAEAAAAGAPj/AAAAAAEAAAAGAAoAAAACAAAAAAAHAPX/AAABAAAAAAAHAPr/AAAAAAAAAAAHAPz/AAABAAEAAAAJAOr/AAACAAAAAAAKAOr/AAAAAAEAAAALAP7/AAABAAEAAAALABEAAAABAAEAAAAMAPn/AAAAAAAAAAAMAP3/AAACAAEAAAANAAMAAAABAAEAAAANABIAAAABAAAAAAAOAA4AAAACAAAAAAAQAA8AAAAAAAAAAAARAOv/AAACAAAAAAARABIAAAAAAAAAAAASAAIAAAACAAEAAAASABIAAAAAAAAAAAAUAOr/AAACAAAAAAAUAAIAAAABAAAAAAAVAAMAAAABAAAAAAAXAPz/AAAAAAAAAAAXAAgAAAAAAAAAAAAYAPH/AAACAAAAAAA=")
+chanceOfEmpty = 94
+
+[node name="Player" parent="." unique_id=992937920 instance=ExtResource("3_dkk4d")]
+position = Vector2(48, 72)
+bulletScene = ExtResource("4_4vbbm")
+fuelConsumption = 3.0
+
+[node name="Cursor" type="Node2D" parent="." unique_id=607741528]
+position = Vector2(183, 56)
+script = ExtResource("5_6cy8a")
+lerpSpeed = 12.0
+
+[node name="Cursors1" type="Sprite2D" parent="Cursor" unique_id=1035325366]
+texture = ExtResource("6_ii20u")
+hframes = 5
+frame = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1496356386]
+
+[node name="FuelBarUI" parent="CanvasLayer" unique_id=1833986140 instance=ExtResource("7_rkfmr")]
+
+[node name="Instructions" type="Node2D" parent="." unique_id=1668945964]
+position = Vector2(56, -4)
+
+[node name="MouseInstructions" type="Sprite2D" parent="Instructions" unique_id=215418887]
+texture = ExtResource("8_pyyts")
+
+[node name="LabelBehind" type="Label" parent="Instructions" unique_id=1196516684]
+offset_left = 35.0
+offset_top = -31.0
+offset_right = 131.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("9_rcfer")
+theme_override_font_sizes/font_size = 32
+text = "Thrust"
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelBehind2" type="Label" parent="Instructions" unique_id=115945348]
+offset_left = -224.0
+offset_top = -33.0
+offset_right = -40.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("9_rcfer")
+theme_override_font_sizes/font_size = 32
+text = "Fire
+(Automatic)"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Rocks" type="Node2D" parent="." unique_id=275461623]
+
+[node name="Rock" parent="Rocks" unique_id=113015114 instance=ExtResource("10_wjwne")]
+position = Vector2(372, 183)
+
+[node name="Rock2" parent="Rocks" unique_id=427204535 instance=ExtResource("10_wjwne")]
+position = Vector2(-345, 877)
+
+[node name="Rock3" parent="Rocks" unique_id=748440587 instance=ExtResource("10_wjwne")]
+position = Vector2(-1039, -515)
+
+[node name="Rock4" parent="Rocks" unique_id=680942775 instance=ExtResource("10_wjwne")]
+position = Vector2(546, -276)
+
+[node name="Rock5" parent="Rocks" unique_id=788547781 instance=ExtResource("10_wjwne")]
+position = Vector2(-906, 436)
+
+[node name="Rock6" parent="Rocks" unique_id=1130215958 instance=ExtResource("10_wjwne")]
+position = Vector2(-2027, 781)
+
+[node name="Rock7" parent="Rocks" unique_id=785561725 instance=ExtResource("10_wjwne")]
+position = Vector2(-1728, -5)
+
+[node name="Rock8" parent="Rocks" unique_id=741383791 instance=ExtResource("10_wjwne")]
+position = Vector2(-1351, 827)
+
+[node name="Rock9" parent="Rocks" unique_id=1157100040 instance=ExtResource("10_wjwne")]
+position = Vector2(37, 1378)
+
+[node name="Rock10" parent="Rocks" unique_id=526535369 instance=ExtResource("10_wjwne")]
+position = Vector2(997, 997)
+
+[node name="Rock11" parent="Rocks" unique_id=922404638 instance=ExtResource("10_wjwne")]
+position = Vector2(-859, 1264)
+
+[node name="Rock12" parent="Rocks" unique_id=187109577 instance=ExtResource("10_wjwne")]
+position = Vector2(-1636, 1563)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1717695341]
+stream = ExtResource("11_sx6gi")
+volume_db = -3.0
+autoplay = true
+
+[connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
