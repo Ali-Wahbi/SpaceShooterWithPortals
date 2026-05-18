@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fmvt0scopdbv"
+path="res://.godot/imported/7 Space Sounds.mp3-ecc9a6ca2a02fba876246878e8c9662a.mp3str"
+
+[deps]
+
+source_file="res://SFX/7 Space Sounds.mp3"
+dest_files=["res://.godot/imported/7 Space Sounds.mp3-ecc9a6ca2a02fba876246878e8c9662a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
