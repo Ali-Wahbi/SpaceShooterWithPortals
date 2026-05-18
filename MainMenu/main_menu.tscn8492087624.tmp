@@ -12,7 +12,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5de1l"]
 shader = ExtResource("2_3w4mj")
-shader_parameter/addX = 0
+shader_parameter/addX = -123
 shader_parameter/addY = 0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_po2gx"]
@@ -147,8 +147,6 @@ _data = {
 
 [node name="MainMenu" type="Node2D" unique_id=1399039347]
 script = ExtResource("1_jdgnk")
-minimumOffset = Vector2(0.1, 0.1)
-maximumTileOffset = Vector2(48, 48)
 
 [node name="StarsBg" parent="." unique_id=563080242 instance=ExtResource("1_nhkf3")]
 texture_repeat = 2
@@ -192,8 +190,7 @@ theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_5de1l")
 theme_override_font_sizes/font_size = 96
-text = "Star Shooter"
-horizontal_alignment = 1
+text = "Title Goes Here"
 
 [node name="sub" type="Label" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer" unique_id=1410229943]
 layout_mode = 2
@@ -202,8 +199,8 @@ theme_override_colors/font_shadow_color = Color(0.078431375, 0.0627451, 0.074509
 theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_5de1l")
-theme_override_font_sizes/font_size = 48
-text = "With Portals"
+theme_override_font_sizes/font_size = 64
+text = "Sub Title Goes Here"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control" unique_id=1256366023]
