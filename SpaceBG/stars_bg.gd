@@ -1,6 +1,7 @@
 extends TileMapLayer
 
-var rectSize = 250
+@export_range(2, 1000, 1) var rectSizeX: int = 250
+@export_range(2, 1000, 1) var rectSizeY: int = 250
 var xSize = 3
 var ySize = 2
 var sourceID = 0
@@ -11,8 +12,8 @@ func _ready() -> void:
 
 func makeStars():
 	clear()
-	for xCoords in range(-rectSize, rectSize):
-		for yCoords in range(-rectSize, rectSize):
+	for xCoords in range(-rectSizeX, rectSizeX):
+		for yCoords in range(-rectSizeY, rectSizeY):
 			if getChanceOfEmpty():
 				continue
 			var cellCoordinates = Vector2(xCoords, yCoords)

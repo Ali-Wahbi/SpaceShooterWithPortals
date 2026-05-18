@@ -18,7 +18,7 @@ player = NodePath("Player")
 instructions = NodePath("Instructions")
 
 [node name="StarsBg" parent="." unique_id=563080242 instance=ExtResource("2_ry2yl")]
-position = Vector2(300, 350)
+position = Vector2(335, 329)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=293026307]
 visible = false

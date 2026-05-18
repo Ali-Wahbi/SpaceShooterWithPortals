@@ -1,0 +1,133 @@
+[gd_scene format=4 uid="uid://byipga86hsgfa"]
+
+[ext_resource type="PackedScene" uid="uid://db55vl37y3nsj" path="res://SpaceBG/space_bg.tscn" id="1_nhkf3"]
+[ext_resource type="Shader" uid="uid://d3y58nftdbl1r" path="res://fuelUI/fuel_bar_ui.gdshader" id="2_3w4mj"]
+[ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="3_5de1l"]
+[ext_resource type="Texture2D" uid="uid://bjaka767fnf6o" path="res://MainMenu/RockEmpty.png" id="4_ajn5b"]
+[ext_resource type="Texture2D" uid="uid://h8wg7a7cudp8" path="res://MainMenu/RockFilled.png" id="5_po2gx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5de1l"]
+shader = ExtResource("2_3w4mj")
+shader_parameter/addX = -123
+shader_parameter/addY = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_po2gx"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("4_ajn5b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbpwf"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("5_po2gx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdgnk"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("5_po2gx")
+
+[node name="MainMenu" type="Node2D" unique_id=1399039347]
+
+[node name="StarsBg" parent="." unique_id=563080242 instance=ExtResource("1_nhkf3")]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5de1l")
+position = Vector2(583, 354)
+tile_map_data = PackedByteArray("AAD8//3/AAAAAAEAAAD8//7/AAAAAAAAAAD8////AAAAAAEAAAD9//7/AAABAAAAAAD9////AAABAAEAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAEAAAD9/wIAAAABAAAAAAD9/wMAAAABAAEAAAD+/wIAAAACAAAAAAD+/wMAAAACAAEAAAABAP3/AAACAAEAAAD/////AAAAAAEAAAAAAP//AAABAAEAAAABAP7/AAACAAAAAAABAP//AAACAAEAAAABAAEAAAACAAEAAAABAAIAAAACAAAAAAABAAMAAAACAAEAAAACAP7/AAAAAAAAAAACAP//AAAAAAEAAAADAP7/AAABAAAAAAADAP//AAABAAEAAAAEAP7/AAACAAAAAAAEAP//AAACAAEAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAACAAAAAAAAAPQBAAAAAAAAAAA=")
+rectSizeX = 30
+rectSizeY = 30
+chanceOfEmpty = 95
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=565438071]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1390139520]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=519216768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 289
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=286207730]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/CenterContainer" unique_id=250651787]
+layout_mode = 2
+
+[node name="main" type="Label" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer" unique_id=1491223564]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_shadow_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("3_5de1l")
+theme_override_font_sizes/font_size = 96
+text = "Title Goes Here"
+
+[node name="sub" type="Label" parent="CanvasLayer/Control/MarginContainer/CenterContainer/VBoxContainer" unique_id=1410229943]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_shadow_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("3_5de1l")
+theme_override_font_sizes/font_size = 64
+text = "Sub Title Goes Here"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control" unique_id=1256366023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer" unique_id=1843417656]
+layout_mode = 2
+theme_override_constants/margin_top = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/MarginContainer" unique_id=707510861]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer" unique_id=685377899]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5de1l")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kbpwf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jdgnk")
+text = "Play"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer" unique_id=1066525269]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5de1l")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kbpwf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jdgnk")
+text = "Quit"
