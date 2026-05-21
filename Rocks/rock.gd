@@ -4,6 +4,9 @@ var minVelocity = 50
 var maxVelocity = 50
 var selectedVelocity: Vector2
 var hp = 3
+
+@onready var particles: GPUParticles2D = $destroyParticle
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	selectedVelocity.x = randf_range(-maxVelocity, maxVelocity)
@@ -29,7 +32,7 @@ func takeDamage():
 	hp -= 1
 	if hp == 0:
 		GlobalSignals.RockDestroyed.emit()
-		queue_free()
+		destroy()
 	else:
 		setSprite()
 	
@@ -37,3 +40,10 @@ func takeDamage():
 func setSprite():
 	var currentFrame = 3 - hp
 	$Sprite2D.frame = currentFrame
+
+func destroy():
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Sprite2D.visible = false
+	particles.emitting = true
+	await particles.finished
+	call_deferred("queue_free")

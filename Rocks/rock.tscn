@@ -2,9 +2,28 @@
 
 [ext_resource type="Script" uid="uid://fk13kiih1u4o" path="res://Rocks/rock.gd" id="1_3f8yx"]
 [ext_resource type="Texture2D" uid="uid://bgmj2imjsrajm" path="res://Rocks/Rocks Sheet1.png" id="2_dxx72"]
+[ext_resource type="Texture2D" uid="uid://dh8ib1fxp43ui" path="res://Rocks/RockParticles.png" id="3_dxx72"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7aw3l"]
 radius = 14.035668
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pg3p6"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ga1i"]
+particle_flag_disable_z = true
+angle_min = -116.69999
+angle_max = 250.80002
+spread = 130.443
+flatness = 0.435
+initial_velocity_max = 63.059998
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -26.720001
+linear_accel_max = 10.819998
+anim_speed_max = 1.65
 
 [node name="Rock" type="RigidBody2D" unique_id=113015114]
 collision_layer = 2
@@ -25,5 +44,14 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1147829995]
 shape = SubResource("CircleShape2D_7aw3l")
+
+[node name="destroyParticle" type="GPUParticles2D" parent="." unique_id=2063735073]
+material = SubResource("CanvasItemMaterial_pg3p6")
+emitting = false
+amount = 4
+texture = ExtResource("3_dxx72")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8ga1i")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

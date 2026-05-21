@@ -76,10 +76,10 @@ position = Vector2(56, -4)
 [node name="MouseInstructions" type="Sprite2D" parent="Instructions" unique_id=215418887]
 texture = ExtResource("6_xdpsd")
 
-[node name="LabelBehind" type="Label" parent="Instructions" unique_id=1196516684]
-offset_left = 35.0
+[node name="RightLabel" type="Label" parent="Instructions" unique_id=1196516684]
+offset_left = 38.0
 offset_top = -31.0
-offset_right = 131.0
+offset_right = 134.0
 offset_bottom = 17.0
 theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_fonts/font = ExtResource("7_6ii2q")
@@ -87,7 +87,7 @@ theme_override_font_sizes/font_size = 32
 text = "Thrust"
 metadata/_edit_use_anchors_ = true
 
-[node name="LabelBehind2" type="Label" parent="Instructions" unique_id=115945348]
+[node name="LeftLabel" type="Label" parent="Instructions" unique_id=115945348]
 offset_left = -224.0
 offset_top = -33.0
 offset_right = -40.0
@@ -139,6 +139,7 @@ position = Vector2(-859, 1264)
 position = Vector2(-1636, 1563)
 
 [node name="portalControl" type="Node2D" parent="." unique_id=901508974 node_paths=PackedStringArray("source", "destination")]
+visible = false
 position = Vector2(732, 465)
 script = ExtResource("11_vj3ng")
 source = NodePath("source")
