@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalSignals="*uid://d0qhf64xdkt3p"
+CameraEffects="*uid://b1yciftr3w6v4"
 
 [editor_plugins]
 
