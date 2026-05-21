@@ -236,7 +236,6 @@ _data = {
 
 [node name="MainMenu" type="Node2D" unique_id=1399039347]
 script = ExtResource("1_jdgnk")
-minimumOffset = Vector2(0.1, 0.1)
 maximumTileOffset = Vector2(48, 48)
 
 [node name="StarsBg" parent="." unique_id=563080242 instance=ExtResource("1_nhkf3")]
