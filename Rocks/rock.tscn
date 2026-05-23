@@ -25,7 +25,7 @@ linear_accel_min = -26.720001
 linear_accel_max = 10.819998
 anim_speed_max = 1.65
 
-[node name="Rock" type="RigidBody2D" unique_id=113015114]
+[node name="Rock" type="RigidBody2D" unique_id=113015114 groups=["Rock"]]
 collision_layer = 2
 collision_mask = 9
 mass = 10.0

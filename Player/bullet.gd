@@ -27,8 +27,9 @@ func forceDestroy():
 		lifeTimer.stop()
 	queue_free()
 
-func _on_body_entered(_body: Node) -> void:
-	linear_velocity = Vector2.ZERO
-	lifeTimer.stop()
-	await get_tree().physics_frame
-	forceDestroy()
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Rock"):
+		linear_velocity = Vector2.ZERO
+		lifeTimer.stop()
+		await get_tree().physics_frame
+		forceDestroy()

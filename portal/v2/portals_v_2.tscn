@@ -244,13 +244,14 @@ animations = [{
 size = Vector2(32.00819, 1.864384)
 
 [node name="portalsV2" type="Node2D" unique_id=1456144671 node_paths=PackedStringArray("sideSprite", "collision")]
+scale = Vector2(2, 2)
 script = ExtResource("1_d1v8n")
 isPart1 = false
+isVertical = false
 sideSprite = NodePath("sideSprite")
 collision = NodePath("collision")
 
 [node name="sideSprite" type="AnimatedSprite2D" parent="." unique_id=343743519]
-rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_jukx3")
 animation = &"portalSide2"
 
@@ -260,9 +261,18 @@ collision_layer = 0
 collision_mask = 65535
 mass = 0.001
 gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision" unique_id=1633836281]
 position = Vector2(0, 0.99999994)
 shape = SubResource("RectangleShape2D_d1v8n")
 one_way_collision = true
 one_way_collision_margin = 0.0
+
+[connection signal="body_entered" from="collision" to="." method="_on_collision_body_entered"]
+[connection signal="body_exited" from="collision" to="." method="_on_collision_body_exited"]

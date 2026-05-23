@@ -43,11 +43,11 @@ func MousePosRotate(delta: float) -> void:
 
 func HandleInput(delta: float) -> void:
 	if Input.is_action_pressed("Thrust"):
-		print("Thrusting in direction")
+		# print("Thrusting in direction")
 		moveThrust(delta)
 	
 	if Input.is_action_just_released("Thrust"):
-		print("Stopping Thrusting")
+		# print("Stopping Thrusting")
 		stopThrust(delta)
 
 	if Input.is_action_pressed("Fire"):

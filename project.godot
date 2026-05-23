@@ -28,6 +28,7 @@ enabled=PackedStringArray()
 [global_group]
 
 Bullet=""
+Rock=""
 
 [input]
 

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dwqmxq1qlhmxy" path="res://fuelUI/fuel_bar_ui.tscn" id="4_od0h0"]
 [ext_resource type="Texture2D" uid="uid://beeg2srh1lm2t" path="res://Extra/mouse Instructions.png" id="6_xdpsd"]
 [ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="7_6ii2q"]
+[ext_resource type="PackedScene" uid="uid://dkccmpiowbl7" path="res://portal/v2/portals_v_2.tscn" id="8_4mqhy"]
 [ext_resource type="PackedScene" uid="uid://dc43ns2wwk6t" path="res://Rocks/rock.tscn" id="9_7aw3l"]
 [ext_resource type="PackedScene" uid="uid://b51ysdcx4ovpk" path="res://Player/bullet.tscn" id="10_ry2yl"]
 [ext_resource type="Shader" uid="uid://b6rkpnewplc0y" path="res://portal/portalCopyTexture.gdshader" id="11_1ro0w"]
@@ -69,6 +70,10 @@ frame = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1496356386]
 
 [node name="FuelBarUI" parent="CanvasLayer" unique_id=1833986140 instance=ExtResource("4_od0h0")]
+offset_left = -7.0
+offset_top = -2.0
+offset_right = -7.0
+offset_bottom = -2.0
 
 [node name="Instructions" type="Node2D" parent="." unique_id=1668945964]
 position = Vector2(56, -4)
@@ -139,8 +144,7 @@ position = Vector2(-859, 1264)
 position = Vector2(-1636, 1563)
 
 [node name="portalControl" type="Node2D" parent="." unique_id=901508974 node_paths=PackedStringArray("source", "destination")]
-visible = false
-position = Vector2(732, 465)
+position = Vector2(-2236, 1401)
 script = ExtResource("11_vj3ng")
 source = NodePath("source")
 destination = NodePath("destination")
@@ -166,5 +170,12 @@ texture = ExtResource("12_vj3ng")
 position = Vector2(303.5, -255)
 scale = Vector2(0.49218723, 0.76562506)
 texture = ExtResource("12_vj3ng")
+
+[node name="portalsV2" parent="." unique_id=1456144671 instance=ExtResource("8_4mqhy")]
+position = Vector2(267, 155)
+
+[node name="portalsV3" parent="." unique_id=1730941078 instance=ExtResource("8_4mqhy")]
+position = Vector2(424, 155)
+isPart1 = true
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
