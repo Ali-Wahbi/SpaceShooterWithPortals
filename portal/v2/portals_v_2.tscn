@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dkccmpiowbl7"]
 
+[ext_resource type="Script" uid="uid://c7f0wervuwrp4" path="res://portal/v2/portals_v_2.gd" id="1_d1v8n"]
 [ext_resource type="Texture2D" uid="uid://6evtt1qa1ayg" path="res://portal/v2/portalsAnimations-Sheet 32x1.png" id="1_d4mno"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1v8n"]
@@ -239,16 +240,29 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="portalsV2" type="Node2D" unique_id=1456144671]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1v8n"]
+size = Vector2(32.00819, 1.864384)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=669114692]
-position = Vector2(44, 0)
-sprite_frames = SubResource("SpriteFrames_jukx3")
-animation = &"portalSide1"
-frame_progress = 0.17614828
+[node name="portalsV2" type="Node2D" unique_id=1456144671 node_paths=PackedStringArray("sideSprite", "collision")]
+script = ExtResource("1_d1v8n")
+isPart1 = false
+sideSprite = NodePath("sideSprite")
+collision = NodePath("collision")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=343743519]
-position = Vector2(16, 0)
+[node name="sideSprite" type="AnimatedSprite2D" parent="." unique_id=343743519]
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_jukx3")
 animation = &"portalSide2"
-frame_progress = 0.8120201
+
+[node name="collision" type="RigidBody2D" parent="." unique_id=1432478741]
+rotation = 1.5707964
+collision_layer = 0
+collision_mask = 65535
+mass = 0.001
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision" unique_id=1633836281]
+position = Vector2(0, 0.99999994)
+shape = SubResource("RectangleShape2D_d1v8n")
+one_way_collision = true
+one_way_collision_margin = 0.0
