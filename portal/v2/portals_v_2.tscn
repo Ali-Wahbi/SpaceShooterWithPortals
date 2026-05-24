@@ -247,13 +247,13 @@ size = Vector2(32.00819, 1.864384)
 scale = Vector2(2, 2)
 script = ExtResource("1_d1v8n")
 isPart1 = false
-isVertical = false
 sideSprite = NodePath("sideSprite")
 collision = NodePath("collision")
 
 [node name="sideSprite" type="AnimatedSprite2D" parent="." unique_id=343743519]
 sprite_frames = SubResource("SpriteFrames_jukx3")
 animation = &"portalSide2"
+frame_progress = 0.0063822004
 
 [node name="collision" type="RigidBody2D" parent="." unique_id=1432478741]
 rotation = 1.5707964

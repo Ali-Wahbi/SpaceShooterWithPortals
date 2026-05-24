@@ -141,28 +141,28 @@ otherPortal = NodePath("../portalsV4")
 isPart1 = true
 
 [node name="portalsV4" parent="." unique_id=281432841 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
-position = Vector2(267, 288)
-rotation = -1.5707964
+position = Vector2(888, 288)
+rotation = 4.712389
 otherPortal = NodePath("../portalsV2")
-
-[node name="portalsV5" parent="." unique_id=380497392 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
-position = Vector2(668, 427)
-rotation = -1.5707964
-otherPortal = NodePath("../portalsV6")
-
-[node name="portalsV6" parent="." unique_id=304111280 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
-position = Vector2(903, 400)
-rotation = -1.5707964
-otherPortal = NodePath("../portalsV5")
 
 [node name="portalsV7" parent="." unique_id=98752922 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
 position = Vector2(1074, 544)
-rotation = -1.5707964
+rotation = -1.0471976
 otherPortal = NodePath("../portalsV8")
 
 [node name="portalsV8" parent="." unique_id=1717271726 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
 position = Vector2(1164, 343)
-rotation = -1.5707964
+rotation = 2.0943952
 otherPortal = NodePath("../portalsV7")
+
+[node name="portalsV9" parent="." unique_id=1387140472 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
+position = Vector2(629, 367)
+rotation = 6.2831855
+otherPortal = NodePath("../portalsV10")
+
+[node name="portalsV10" parent="." unique_id=468992000 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
+position = Vector2(406, 366)
+rotation = 3.1415927
+otherPortal = NodePath("../portalsV9")
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]

@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="9_rcfer"]
 [ext_resource type="PackedScene" uid="uid://dc43ns2wwk6t" path="res://Rocks/rock.tscn" id="10_wjwne"]
 [ext_resource type="AudioStream" uid="uid://ch6qn2a7fmihy" path="res://SFX/GameBGSong.mp3" id="11_sx6gi"]
+[ext_resource type="PackedScene" uid="uid://dkccmpiowbl7" path="res://portal/v2/portals_v_2.tscn" id="12_dkk4d"]
 
 [node name="mainGameArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player", "instructions")]
 script = ExtResource("1_mjele")
@@ -116,5 +117,36 @@ position = Vector2(-1636, 1563)
 stream = ExtResource("11_sx6gi")
 volume_db = -3.0
 autoplay = true
+
+[node name="portalsV2" parent="." unique_id=1456144671 node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_dkk4d")]
+position = Vector2(894, 3)
+rotation = 1.5707964
+otherPortal = NodePath("../portalsV4")
+isPart1 = true
+
+[node name="portalsV4" parent="." unique_id=1034892711 node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_dkk4d")]
+position = Vector2(888, 288)
+rotation = 4.712389
+otherPortal = NodePath("../portalsV2")
+
+[node name="portalsV7" parent="." unique_id=1219856309 node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_dkk4d")]
+position = Vector2(1074, 544)
+rotation = -1.0471976
+otherPortal = NodePath("../portalsV8")
+
+[node name="portalsV8" parent="." unique_id=2124844523 node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_dkk4d")]
+position = Vector2(1164, 343)
+rotation = 2.0943952
+otherPortal = NodePath("../portalsV7")
+
+[node name="portalsV9" parent="." unique_id=1656463579 node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_dkk4d")]
+position = Vector2(629, 367)
+rotation = 6.2831855
+otherPortal = NodePath("../portalsV10")
+
+[node name="portalsV10" parent="." unique_id=351662736 node_paths=PackedStringArray("otherPortal") instance=ExtResource("12_dkk4d")]
+position = Vector2(406, 366)
+rotation = 3.1415927
+otherPortal = NodePath("../portalsV9")
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
