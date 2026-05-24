@@ -58,6 +58,7 @@ theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_fonts/font = ExtResource("9_rcfer")
 theme_override_font_sizes/font_size = 32
 text = "Thrust"
+justification_flags = 171
 metadata/_edit_use_anchors_ = true
 
 [node name="LabelBehind2" type="Label" parent="Instructions" unique_id=115945348]

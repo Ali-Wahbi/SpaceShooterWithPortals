@@ -11,16 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dkccmpiowbl7" path="res://portal/v2/portals_v_2.tscn" id="8_4mqhy"]
 [ext_resource type="PackedScene" uid="uid://dc43ns2wwk6t" path="res://Rocks/rock.tscn" id="9_7aw3l"]
 [ext_resource type="PackedScene" uid="uid://b51ysdcx4ovpk" path="res://Player/bullet.tscn" id="10_ry2yl"]
-[ext_resource type="Shader" uid="uid://b6rkpnewplc0y" path="res://portal/portalCopyTexture.gdshader" id="11_1ro0w"]
-[ext_resource type="Script" uid="uid://clucjxpfig4vs" path="res://portal/portal_control.gd" id="11_vj3ng"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="12_vj3ng"]
-[ext_resource type="Shader" uid="uid://bc2ifafncx3ir" path="res://portal/portalSourceTexture.gdshader" id="14_ugoup"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugoup"]
-shader = ExtResource("11_1ro0w")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mqhy"]
-shader = ExtResource("14_ugoup")
 
 [node name="TestArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player", "instructions")]
 script = ExtResource("1_vt2yd")
@@ -144,38 +134,8 @@ position = Vector2(-859, 1264)
 [node name="Rock12" parent="Rocks" unique_id=187109577 instance=ExtResource("9_7aw3l")]
 position = Vector2(-1636, 1563)
 
-[node name="portalControl" type="Node2D" parent="." unique_id=901508974 node_paths=PackedStringArray("source", "destination")]
-process_mode = 4
-visible = false
-position = Vector2(-2236, 1401)
-script = ExtResource("11_vj3ng")
-source = NodePath("source")
-destination = NodePath("destination")
-
-[node name="destination" type="Sprite2D" parent="portalControl" unique_id=985974299]
-material = SubResource("ShaderMaterial_ugoup")
-position = Vector2(-887, -186.00002)
-scale = Vector2(2.285477, 1.9062501)
-texture = ExtResource("12_vj3ng")
-
-[node name="source" type="Sprite2D" parent="portalControl" unique_id=1386668280]
-material = SubResource("ShaderMaterial_4mqhy")
-position = Vector2(235.00002, -269)
-scale = Vector2(3.2912006, 3.1093748)
-texture = ExtResource("12_vj3ng")
-
-[node name="Icon" type="Sprite2D" parent="portalControl" unique_id=1574660612]
-position = Vector2(190, -168)
-scale = Vector2(0.29687494, 1.140625)
-texture = ExtResource("12_vj3ng")
-
-[node name="Icon2" type="Sprite2D" parent="portalControl" unique_id=593373086]
-position = Vector2(303.5, -255)
-scale = Vector2(0.49218723, 0.76562506)
-texture = ExtResource("12_vj3ng")
-
 [node name="portalsV2" parent="." unique_id=1456144671 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
-position = Vector2(431, 155)
+position = Vector2(894, 3)
 rotation = 1.5707964
 otherPortal = NodePath("../portalsV4")
 isPart1 = true
@@ -184,5 +144,25 @@ isPart1 = true
 position = Vector2(267, 288)
 rotation = -1.5707964
 otherPortal = NodePath("../portalsV2")
+
+[node name="portalsV5" parent="." unique_id=380497392 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
+position = Vector2(668, 427)
+rotation = -1.5707964
+otherPortal = NodePath("../portalsV6")
+
+[node name="portalsV6" parent="." unique_id=304111280 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
+position = Vector2(903, 400)
+rotation = -1.5707964
+otherPortal = NodePath("../portalsV5")
+
+[node name="portalsV7" parent="." unique_id=98752922 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
+position = Vector2(1074, 544)
+rotation = -1.5707964
+otherPortal = NodePath("../portalsV8")
+
+[node name="portalsV8" parent="." unique_id=1717271726 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
+position = Vector2(1164, 343)
+rotation = -1.5707964
+otherPortal = NodePath("../portalsV7")
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
