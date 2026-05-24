@@ -1,6 +1,7 @@
 @tool
+class_name Portal
 extends Node2D
-
+@export var otherPortal: Portal
 @export var isPart1: bool = true:
 	set(value):
 		isPart1 = value
@@ -26,12 +27,35 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-
+var portalObjectsIDs: Array = []
 func _on_collision_body_exited(body: Node) -> void:
-	print("Entered: ", body)
+	var index = portalObjectsIDs.find(body)
+	if index != -1:
+		print("Exited: ", body)
+		portalObjectsIDs.remove_at(index)
+
 
 func _on_collision_body_entered(body: Node) -> void:
-	print("Exited: ", body)
+	if otherPortal:
+		var index = portalObjectsIDs.find(body)
+		if index != -1:
+			return
+
+		print("Entered: ", body)
+		if otherPortal.portalObjectsIDs.find(body) == -1:
+			otherPortal.portalObjectsIDs.append(body)
+		body.position = calculateNewBodyPos(body.position)
+
+
+func calculateNewBodyPos(pos: Vector2) -> Vector2:
+	var newPos: Vector2 = Vector2(0, 0)
+
+	newPos = position - pos
+
+	newPos = otherPortal.position - newPos
+
+
+	return newPos

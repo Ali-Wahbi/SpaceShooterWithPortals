@@ -27,6 +27,7 @@ script = ExtResource("1_vt2yd")
 fuelUI = NodePath("CanvasLayer/FuelBarUI")
 player = NodePath("Player")
 instructions = NodePath("Instructions")
+startTimer = 0
 
 [node name="StarsBg" parent="." unique_id=563080242 instance=ExtResource("2_ry2yl")]
 position = Vector2(335, 329)
@@ -108,7 +109,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Rocks" type="Node2D" parent="." unique_id=275461623]
 
 [node name="Rock" parent="Rocks" unique_id=113015114 instance=ExtResource("9_7aw3l")]
-position = Vector2(372, 183)
+position = Vector2(410, 154)
 
 [node name="Rock2" parent="Rocks" unique_id=427204535 instance=ExtResource("9_7aw3l")]
 position = Vector2(-345, 877)
@@ -144,6 +145,8 @@ position = Vector2(-859, 1264)
 position = Vector2(-1636, 1563)
 
 [node name="portalControl" type="Node2D" parent="." unique_id=901508974 node_paths=PackedStringArray("source", "destination")]
+process_mode = 4
+visible = false
 position = Vector2(-2236, 1401)
 script = ExtResource("11_vj3ng")
 source = NodePath("source")
@@ -171,11 +174,13 @@ position = Vector2(303.5, -255)
 scale = Vector2(0.49218723, 0.76562506)
 texture = ExtResource("12_vj3ng")
 
-[node name="portalsV2" parent="." unique_id=1456144671 instance=ExtResource("8_4mqhy")]
+[node name="portalsV2" parent="." unique_id=1456144671 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
 position = Vector2(267, 155)
+otherPortal = NodePath("../portalsV3")
 
-[node name="portalsV3" parent="." unique_id=1730941078 instance=ExtResource("8_4mqhy")]
+[node name="portalsV3" parent="." unique_id=1730941078 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
 position = Vector2(424, 155)
+otherPortal = NodePath("../portalsV2")
 isPart1 = true
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]
