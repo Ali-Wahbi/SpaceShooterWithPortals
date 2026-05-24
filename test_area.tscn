@@ -175,12 +175,14 @@ scale = Vector2(0.49218723, 0.76562506)
 texture = ExtResource("12_vj3ng")
 
 [node name="portalsV2" parent="." unique_id=1456144671 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
-position = Vector2(267, 155)
-otherPortal = NodePath("../portalsV3")
-
-[node name="portalsV3" parent="." unique_id=1730941078 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
-position = Vector2(424, 155)
-otherPortal = NodePath("../portalsV2")
+position = Vector2(431, 155)
+rotation = 1.5707964
+otherPortal = NodePath("../portalsV4")
 isPart1 = true
+
+[node name="portalsV4" parent="." unique_id=281432841 node_paths=PackedStringArray("otherPortal") instance=ExtResource("8_4mqhy")]
+position = Vector2(267, 288)
+rotation = -1.5707964
+otherPortal = NodePath("../portalsV2")
 
 [connection signal="fuelConsumed" from="Player" to="CanvasLayer/FuelBarUI" method="setFuelUIValue"]

@@ -33,3 +33,27 @@ func _on_body_entered(body: Node) -> void:
 		lifeTimer.stop()
 		await get_tree().physics_frame
 		forceDestroy()
+
+#region Portaling
+
+var _portal_pos: Vector2
+var _portal_vel: Vector2
+var _needs_portal_teleport: bool = false
+
+# Called by the portal script
+func teleport_via_portal(new_pos: Vector2, new_vel: Vector2) -> void:
+	_portal_pos = new_pos
+	_portal_vel = new_vel
+	_needs_portal_teleport = true
+	
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	if _needs_portal_teleport:
+		# 1. Modify the transform origin (position)
+		var new_transform: Transform2D = state.transform
+		new_transform.origin = _portal_pos
+		state.transform = new_transform
+		
+		# 2. Re-apply the rotated velocity vector
+		state.linear_velocity = _portal_vel
+		
+		_needs_portal_teleport = false
