@@ -59,6 +59,8 @@ func connectSignals():
 func gainFuelFromRock():
 	print("Gaining 15 Fuel")
 	gainFuel(15.0)
+
+
 #region Fuel Handling
 signal fuelConsumed(float)
 @export_group("Fuel")
@@ -79,7 +81,7 @@ func consumeFuel(delta: float) -> void:
 	currentFuel -= fuelConsumption * delta
 
 func startFuel() -> void:
-	currentFuel = maxFuel
+	currentFuel = 30.0
 
 func gainFuel(amount: float) -> void:
 	currentFuel += amount
