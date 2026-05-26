@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -14,7 +14,8 @@ func _process(_delta: float) -> void:
 
 #region buttons
 func _on_play_mouse_entered() -> void:
-	hoverSFX.play()
+	if not animPlayer.is_playing():
+		hoverSFX.play()
 
 func _on_play_pressed() -> void:
 	pressSFX.play()
@@ -25,7 +26,8 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://mainGameArea.tscn")
 
 func _on_quit_mouse_entered() -> void:
-	hoverSFX.play()
+	if not animPlayer.is_playing():
+		hoverSFX.play()
 
 func _on_quit_pressed() -> void:
 	pressSFX.play()
@@ -49,7 +51,7 @@ var yOffset: float:
 		yOffset = value
 		setSpaceYOffset()
 
-var prevMousePos: Vector2 = -Vector2(1000,1000)
+var prevMousePos: Vector2 = - Vector2(1000, 1000)
 func spaceMouseOffset():
 	var mousePos = get_global_mouse_position() / get_viewport_rect().size - Vector2.ONE / 2.0
 	if prevMousePos == mousePos:

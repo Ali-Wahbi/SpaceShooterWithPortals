@@ -46,6 +46,7 @@ frame = 1
 [node name="FuelBarUI" parent="CanvasLayer" unique_id=1833986140 instance=ExtResource("7_rkfmr")]
 
 [node name="FinishGameUI" parent="CanvasLayer" unique_id=1017364825 instance=ExtResource("8_4vbbm")]
+process_mode = 3
 visible = false
 
 [node name="Instructions" type="Node2D" parent="." unique_id=1668945964]

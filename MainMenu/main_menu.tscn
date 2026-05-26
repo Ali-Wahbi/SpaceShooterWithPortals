@@ -122,6 +122,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer/quit:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer/play:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8n28k"]
 resource_name = "hideUI"
@@ -226,6 +250,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer/quit:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer/play:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iej5p"]
 _data = {
@@ -243,8 +291,8 @@ texture_repeat = 2
 material = SubResource("ShaderMaterial_5de1l")
 position = Vector2(583, 354)
 tile_map_data = PackedByteArray("AAD9//7/AAABAAAAAAD8//3/AAAAAAEAAAD8//7/AAAAAAAAAAD8////AAAAAAEAAAD9////AAABAAEAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAEAAAD9/wIAAAABAAAAAAD9/wMAAAABAAEAAAD+/wIAAAACAAAAAAD+/wMAAAACAAEAAAABAP3/AAACAAEAAAD/////AAAAAAEAAAAAAP//AAABAAEAAAABAP7/AAACAAAAAAABAP//AAACAAEAAAABAAEAAAACAAEAAAABAAIAAAACAAAAAAABAAMAAAACAAEAAAACAP7/AAAAAAAAAAACAP//AAAAAAEAAAADAP7/AAABAAAAAAADAP//AAABAAEAAAAEAP7/AAACAAAAAAAEAP//AAACAAEAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAACAAAAAAAAAPQBAAAAAAAAAAA=")
-rectSizeX = 20
-rectSizeY = 10
+rectSizeX = 100
+rectSizeY = 75
 chanceOfEmpty = 90
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=565438071]
@@ -333,6 +381,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
 theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_disabled_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_5de1l")
@@ -340,6 +389,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_kbpwf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_jdgnk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_po2gx")
 text = "Play"
 
 [node name="quit" type="Button" parent="CanvasLayer/Control/CenterContainer/MarginContainer/VBoxContainer" unique_id=1066525269]
@@ -347,6 +397,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
 theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_disabled_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_5de1l")
@@ -354,6 +405,8 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_po2gx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_kbpwf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_jdgnk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_po2gx")
+disabled = true
 text = "Quit"
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1331217744]

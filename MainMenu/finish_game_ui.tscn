@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cm5bx1nlk34kk"]
 
+[ext_resource type="Script" uid="uid://3sktrhwlpd53" path="res://MainMenu/finish_game_ui.gd" id="1_ct3sn"]
 [ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="1_mg2dw"]
 [ext_resource type="Texture2D" uid="uid://nmg81u0sdprk" path="res://MainMenu/icon-4.png" id="2_5da4e"]
 [ext_resource type="Texture2D" uid="uid://cxrtdwb37y7ai" path="res://MainMenu/icon-3.png" id="3_kdf0l"]
 [ext_resource type="Texture2D" uid="uid://ykdg0tobo2cx" path="res://MainMenu/icon-2.png" id="4_ct3sn"]
 [ext_resource type="Texture2D" uid="uid://dbkee6qr35smf" path="res://MainMenu/icon-1.png" id="5_psvt6"]
+[ext_resource type="AudioStream" uid="uid://v6elsynhxuse" path="res://SFX/ButtonHover.wav" id="6_kdf0l"]
+[ext_resource type="AudioStream" uid="uid://le7exttb6oki" path="res://SFX/ButtonConfirm2.wav" id="7_ct3sn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omcy0"]
 content_margin_left = 64.0
@@ -55,6 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ct3sn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1513098735]
 layout_mode = 1
@@ -85,6 +89,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_0gmoi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4mqhy")
 
 [node name="quitLabel" type="Label" parent="MarginContainer/CenterContainer/HBoxContainer/quit" unique_id=822083149]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1015625
@@ -101,7 +106,7 @@ text = "Quit"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="restart" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer" unique_id=111916157]
+[node name="retry" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer" unique_id=111916157]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
 theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
@@ -114,7 +119,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_sgixy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3ouot")
 theme_override_styles/hover = SubResource("StyleBoxTexture_616xp")
 
-[node name="restartLabel" type="Label" parent="MarginContainer/CenterContainer/HBoxContainer/restart" unique_id=1800970065]
+[node name="retryLabel" type="Label" parent="MarginContainer/CenterContainer/HBoxContainer/retry" unique_id=1800970065]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.1328125
@@ -130,3 +136,18 @@ theme_override_font_sizes/font_size = 32
 text = "Retry"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="buttonHover" type="AudioStreamPlayer" parent="." unique_id=2019216381]
+stream = ExtResource("6_kdf0l")
+mix_target = 1
+
+[node name="buttonPressed" type="AudioStreamPlayer" parent="." unique_id=1128295488]
+stream = ExtResource("7_ct3sn")
+mix_target = 1
+
+[connection signal="mouse_entered" from="MarginContainer/CenterContainer/HBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/CenterContainer/HBoxContainer/quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/CenterContainer/HBoxContainer/retry" to="." method="_on_restart_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/CenterContainer/HBoxContainer/retry" to="." method="_on_restart_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/HBoxContainer/retry" to="." method="_on_restart_pressed"]
