@@ -44,6 +44,7 @@ func setSprite():
 func destroy():
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.visible = false
+	$PointerV2.modulate.a = 0.0
 	particles.emitting = true
 	await particles.finished
 	call_deferred("queue_free")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://fk13kiih1u4o" path="res://Rocks/rock.gd" id="1_3f8yx"]
 [ext_resource type="Texture2D" uid="uid://bgmj2imjsrajm" path="res://Rocks/Rocks Sheet1.png" id="2_dxx72"]
 [ext_resource type="Texture2D" uid="uid://dh8ib1fxp43ui" path="res://Rocks/RockParticles.png" id="3_dxx72"]
+[ext_resource type="PackedScene" uid="uid://ceptstw62wh2h" path="res://Rocks/RocksPointer.tscn" id="4_pg3p6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7aw3l"]
 radius = 14.035668
@@ -53,5 +54,9 @@ texture = ExtResource("3_dxx72")
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_8ga1i")
+
+[node name="PointerV2" parent="." unique_id=382244730 instance=ExtResource("4_pg3p6")]
+onScreenOffset = Vector2(5.1, -100)
+ScreenMargin = 75.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

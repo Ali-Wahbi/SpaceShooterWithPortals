@@ -253,7 +253,7 @@ collision = NodePath("collision")
 [node name="sideSprite" type="AnimatedSprite2D" parent="." unique_id=343743519]
 sprite_frames = SubResource("SpriteFrames_jukx3")
 animation = &"portalSide2"
-frame_progress = 0.0063822004
+frame_progress = 0.38084084
 
 [node name="collision" type="RigidBody2D" parent="." unique_id=1432478741]
 rotation = 1.5707964

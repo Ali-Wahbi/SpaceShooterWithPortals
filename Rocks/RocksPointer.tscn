@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ceptstw62wh2h"]
+
+[ext_resource type="Texture2D" uid="uid://bcxvqdo85wukp" path="res://Rocks/pointer2.png" id="1_5ioq0"]
+[ext_resource type="Script" uid="uid://7favw4eo8v8o" path="res://Rocks/rockPointer.gd" id="2_j4cyl"]
+[ext_resource type="FontFile" uid="uid://cgqs4b6427ucd" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="2_ml6dr"]
+
+[node name="PointerV2" type="Sprite2D" unique_id=382244730]
+scale = Vector2(2, 2)
+texture = ExtResource("1_5ioq0")
+script = ExtResource("2_j4cyl")
+
+[node name="Label" type="Label" parent="." unique_id=1052064244]
+offset_left = -7.0
+offset_top = -11.0
+offset_right = 8.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("2_ml6dr")
+theme_override_font_sizes/font_size = 8
+text = "999"
