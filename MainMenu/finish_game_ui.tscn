@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://cm5bx1nlk34kk"]
+
+[ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="1_mg2dw"]
+[ext_resource type="Texture2D" uid="uid://nmg81u0sdprk" path="res://MainMenu/icon-4.png" id="2_5da4e"]
+[ext_resource type="Texture2D" uid="uid://cxrtdwb37y7ai" path="res://MainMenu/icon-3.png" id="3_kdf0l"]
+[ext_resource type="Texture2D" uid="uid://ykdg0tobo2cx" path="res://MainMenu/icon-2.png" id="4_ct3sn"]
+[ext_resource type="Texture2D" uid="uid://dbkee6qr35smf" path="res://MainMenu/icon-1.png" id="5_psvt6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omcy0"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("2_5da4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0gmoi"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("3_kdf0l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mqhy"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("3_kdf0l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sgixy"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("4_ct3sn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ouot"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("5_psvt6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_616xp"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("5_psvt6")
+
+[node name="FinishGameUI" type="Control" unique_id=1017364825]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1513098735]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 192
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=477493001]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer" unique_id=1763452331]
+layout_mode = 2
+
+[node name="quit" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer" unique_id=671684335]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_mg2dw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_omcy0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0gmoi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4mqhy")
+
+[node name="quitLabel" type="Label" parent="MarginContainer/CenterContainer/HBoxContainer/quit" unique_id=822083149]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1015625
+anchor_top = -0.171875
+anchor_right = 0.1015625
+anchor_bottom = -0.171875
+offset_left = 3.0
+offset_right = 99.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("1_mg2dw")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="restart" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer" unique_id=111916157]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_mg2dw")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_sgixy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3ouot")
+theme_override_styles/hover = SubResource("StyleBoxTexture_616xp")
+
+[node name="restartLabel" type="Label" parent="MarginContainer/CenterContainer/HBoxContainer/restart" unique_id=1800970065]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1328125
+anchor_top = -0.171875
+anchor_right = 1.1328125
+anchor_bottom = -0.171875
+offset_left = -129.0
+offset_right = -33.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("1_mg2dw")
+theme_override_font_sizes/font_size = 32
+text = "Retry"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -7,7 +7,8 @@ extends Control
 @onready var warningLabel: Label = %WarningLabel
 var warningValue = 20
 var warningTween: Tween
-
+var outOfFuel = "Out Of Fuel"
+var lowFuel = "Low Fuel"
 func _ready():
 	modulate.a = 0.0
 	warningLabel.modulate.a = 0.0
@@ -22,7 +23,14 @@ func setFuelUIValue(value: float) -> void:
 		labelFront.text = str(intValue)
 
 	fuelBar.value = value
+	if intValue == 0:
+		print("Out of Fuel")
+		await stopFlashModulateLabel()
+		warningLabel.modulate.a = 1.0
+		warningLabel.text = outOfFuel
+		return
 	if not warningTween and intValue <= warningValue:
+		warningLabel.text = lowFuel
 		flashModulateLabel()
 	elif intValue > warningValue:
 		stopFlashModulateLabel()
@@ -47,5 +55,6 @@ func stopFlashModulateLabel():
 		return
 	print("Flash Tween Stopped")
 	await warningTween.loop_finished
-	warningTween.kill()
+	if warningTween:
+		warningTween.kill()
 	warningTween = null

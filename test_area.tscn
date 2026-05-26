@@ -9,8 +9,54 @@
 [ext_resource type="Texture2D" uid="uid://beeg2srh1lm2t" path="res://Extra/mouse Instructions.png" id="6_xdpsd"]
 [ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="7_6ii2q"]
 [ext_resource type="PackedScene" uid="uid://dkccmpiowbl7" path="res://portal/v2/portals_v_2.tscn" id="8_4mqhy"]
+[ext_resource type="Texture2D" uid="uid://nmg81u0sdprk" path="res://MainMenu/icon-4.png" id="9_4mqhy"]
 [ext_resource type="PackedScene" uid="uid://dc43ns2wwk6t" path="res://Rocks/rock.tscn" id="9_7aw3l"]
+[ext_resource type="Texture2D" uid="uid://cxrtdwb37y7ai" path="res://MainMenu/icon-3.png" id="10_rgdj5"]
 [ext_resource type="PackedScene" uid="uid://b51ysdcx4ovpk" path="res://Player/bullet.tscn" id="10_ry2yl"]
+[ext_resource type="Texture2D" uid="uid://ykdg0tobo2cx" path="res://MainMenu/icon-2.png" id="11_4mqhy"]
+[ext_resource type="Texture2D" uid="uid://dbkee6qr35smf" path="res://MainMenu/icon-1.png" id="12_rgdj5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omcy0"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("9_4mqhy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0gmoi"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("10_rgdj5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mqhy"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("10_rgdj5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sgixy"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("11_4mqhy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ouot"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("12_rgdj5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_616xp"]
+content_margin_left = 64.0
+content_margin_top = 64.0
+content_margin_right = 64.0
+content_margin_bottom = 64.0
+texture = ExtResource("12_rgdj5")
 
 [node name="TestArea" type="Node2D" unique_id=780645201 node_paths=PackedStringArray("fuelUI", "player", "instructions")]
 script = ExtResource("1_vt2yd")
@@ -46,7 +92,7 @@ offset_bottom = -25.0
 [node name="Player" parent="." unique_id=992937920 instance=ExtResource("1_64fjj")]
 position = Vector2(48, 72)
 bulletScene = ExtResource("10_ry2yl")
-fuelConsumption = 3.0
+fuelConsumption = 20.0
 
 [node name="Cursor" type="Node2D" parent="." unique_id=607741528]
 position = Vector2(183, 56)
@@ -65,6 +111,89 @@ offset_left = -7.0
 offset_top = -2.0
 offset_right = -7.0
 offset_bottom = -2.0
+
+[node name="FinishGameUI" type="Control" parent="CanvasLayer" unique_id=1788946149]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/FinishGameUI" unique_id=1688798593]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 192
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/FinishGameUI/MarginContainer" unique_id=1221630296]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/FinishGameUI/MarginContainer/CenterContainer" unique_id=1085351694]
+layout_mode = 2
+
+[node name="quit" type="Button" parent="CanvasLayer/FinishGameUI/MarginContainer/CenterContainer/HBoxContainer" unique_id=1183867491]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_6ii2q")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_omcy0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0gmoi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4mqhy")
+
+[node name="quitLabel" type="Label" parent="CanvasLayer/FinishGameUI/MarginContainer/CenterContainer/HBoxContainer/quit" unique_id=1156566387]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1015625
+anchor_top = -0.171875
+anchor_right = 0.1015625
+anchor_bottom = -0.171875
+offset_left = 3.0
+offset_right = 99.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("7_6ii2q")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="restart" type="Button" parent="CanvasLayer/FinishGameUI/MarginContainer/CenterContainer/HBoxContainer" unique_id=400566862]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_colors/font_pressed_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_hover_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.0627451, 0.07450981, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_6ii2q")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_sgixy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3ouot")
+theme_override_styles/hover = SubResource("StyleBoxTexture_616xp")
+
+[node name="restartLabel" type="Label" parent="CanvasLayer/FinishGameUI/MarginContainer/CenterContainer/HBoxContainer/restart" unique_id=268622341]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1328125
+anchor_top = -0.171875
+anchor_right = 1.1328125
+anchor_bottom = -0.171875
+offset_left = -129.0
+offset_right = -33.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.4509804, 0.09019608, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("7_6ii2q")
+theme_override_font_sizes/font_size = 32
+text = "Retry"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Instructions" type="Node2D" parent="." unique_id=1668945964]
 position = Vector2(56, -4)

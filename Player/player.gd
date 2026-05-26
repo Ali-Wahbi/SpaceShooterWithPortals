@@ -42,13 +42,15 @@ func MousePosRotate(delta: float) -> void:
 	rotation = lerp_angle(rotation, correctRotations, rotationSpeed * delta)
 
 func HandleInput(delta: float) -> void:
-	if Input.is_action_pressed("Thrust"):
+	if Input.is_action_pressed("Thrust") and currentFuel > 0:
 		# print("Thrusting in direction")
 		moveThrust(delta)
 	
 	if Input.is_action_just_released("Thrust"):
 		# print("Stopping Thrusting")
 		stopThrust(delta)
+	if currentFuel == 0 and thrusterSprite.visible:
+		thrusterSprite.visible = false
 
 	if Input.is_action_pressed("Fire"):
 		fireBullet()
@@ -81,7 +83,7 @@ func consumeFuel(delta: float) -> void:
 	currentFuel -= fuelConsumption * delta
 
 func startFuel() -> void:
-	currentFuel = 30.0
+	currentFuel = maxFuel
 
 func gainFuel(amount: float) -> void:
 	currentFuel += amount
@@ -98,8 +100,8 @@ func moveThrust(delta: float):
 
 func stopThrust(delta: float):
 	thrusterSprite.visible = false
-	velocity.x = move_toward(velocity.x, 0, stoppingSpeed * THRUST_LERP_SPEED * delta)
-	velocity.y = move_toward(velocity.y, 0, stoppingSpeed * THRUST_LERP_SPEED * delta)
+	velocity.x = move_toward(velocity.x, 0.0, stoppingSpeed * THRUST_LERP_SPEED * delta)
+	velocity.y = move_toward(velocity.y, 0.0, stoppingSpeed * THRUST_LERP_SPEED * delta)
 
 #endregion
 

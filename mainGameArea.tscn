@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://duvpsujs6a4lr" path="res://Cursor/cursor.gd" id="5_6cy8a"]
 [ext_resource type="Texture2D" uid="uid://brxms3muhicui" path="res://Cursor/Cursors1.png" id="6_ii20u"]
 [ext_resource type="PackedScene" uid="uid://dwqmxq1qlhmxy" path="res://fuelUI/fuel_bar_ui.tscn" id="7_rkfmr"]
+[ext_resource type="PackedScene" uid="uid://cm5bx1nlk34kk" path="res://MainMenu/finish_game_ui.tscn" id="8_4vbbm"]
 [ext_resource type="Texture2D" uid="uid://beeg2srh1lm2t" path="res://Extra/mouse Instructions.png" id="8_pyyts"]
 [ext_resource type="FontFile" uid="uid://bvddonqxaf1s1" path="res://fonts/Pixellari.ttf" id="9_rcfer"]
 [ext_resource type="PackedScene" uid="uid://dc43ns2wwk6t" path="res://Rocks/rock.tscn" id="10_wjwne"]
@@ -43,6 +44,9 @@ frame = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1496356386]
 
 [node name="FuelBarUI" parent="CanvasLayer" unique_id=1833986140 instance=ExtResource("7_rkfmr")]
+
+[node name="FinishGameUI" parent="CanvasLayer" unique_id=1017364825 instance=ExtResource("8_4vbbm")]
+visible = false
 
 [node name="Instructions" type="Node2D" parent="." unique_id=1668945964]
 position = Vector2(56, -4)
